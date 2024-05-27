@@ -1,0 +1,135 @@
+*{
+    background-color: #524b2f;
+    margin: 0;
+    box-sizing: content-box;
+    padding:0;
+    background-image: url(./images/fondo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    
+}
+body{
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+}
+.contenedor-dados{
+    position: relative;
+    top:100px;
+    left: -300px;
+    max-width: 100%; 
+    height: auto;
+    text-align: center;
+}
+#dados{
+    cursor:pointer;
+    position: relative;
+    top: 71%;
+    left: 60%;
+    width: 13%;
+    height: 13%;
+    text-align: center;
+}
+
+#mapa{
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 25px #050505;
+    width: 90%; 
+    height: 50%;
+    position: relative;
+    top: 16%;
+    left: -30%;
+
+
+ 
+}
+p {
+  
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 2px 2px 3px black;
+}
+
+
+#tirada{
+    display: flex;
+    font-size: 220%;
+    position: relative;
+    top:89%;
+    left: 50%;
+    width:10px;
+    height: 10px;
+}
+
+#heroe{
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    left: 130%;
+    top:39%;
+    font-size: 250%;
+    height: 100px;
+}
+#avanzar{
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+    top: 81%;
+    left: -57%;
+    border: none;
+    font-size: 100%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    cursor: pointer;
+    font-weight: bolder;
+}
+#evento{
+    display: flex;
+    width: 600px;
+    height: 100px;
+
+   
+}
+.evento-contenedor{
+    
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    top: 55%;
+    left: -104%;
+    width: 1000px;
+    height: 100px;
+}
+.contenedor-nombre{
+
+    position: relative;
+    top: 9.5%;
+    left: -76%;
+    height: 30px;
+    width: 300px;
+}
+#NombreHeroe{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+    font-size: 120%;
+    border: none;
+}
+
+#event-tirada{
+    width: 200px;
+    height: 20px;
+
+}
+.contenedor-tirada{
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    top:89%;
+    left: 60%;
+    height: 30px;
+    width: 300px;
+}
