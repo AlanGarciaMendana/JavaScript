@@ -1,7 +1,42 @@
 
-const Bienvenida =alert("Bienvenido a LoreTerra, Un juego tipo Dungeon & Dragons\nEn este juego deberas aventurarte en una mision, recolectar Items y enfrentarte a enemigos")
-const ReglasDeJuego =alert("Las reglas son faciles, eres un Guerrero, segun tu nivel de arma y armadura tiraras los dados para atacar y defenderte, el numero de dados sera el daño que realices en el caso de los ataques\nEn el caso de la defensa, si tiras un dado y sale mayor a 7 esquivaras el ataque. Los dados tienen 12 caras.\n Avanzas de a un casillero, no puedes volver atras, tu unica salida es hacia adelante.")
-const Comojugar = alert("Para comenzar una Pelea debes clickear en los dados y para avanzar en el mapa debes clickear el boton Avanzar")
+const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-success",
+      cancelButton: "btn btn-danger"
+    },
+    buttonsStyling: false
+  });
+  swalWithBootstrapButtons.fire({
+    title: "Bienvenido a LoreTerra",
+    text: "Un juego tipo Dungeon & Dragons En este juego deberas aventurarte en una mision, recolectar Items y enfrentarte a enemigos \nDeseas jugar?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Si",
+    cancelButtonText: "No",
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+        Swal.fire({
+            title: "Reglas",
+            text: "Las reglas son faciles, eres un Guerrero, segun tu nivel de arma y armadura tiraras los dados para atacar y defenderte, el numero de dados sera el daño que realices en el caso de los ataques\nEn el caso de la defensa, si tiras un dado y sale mayor a 7 esquivaras el ataque. Los dados tienen 12 caras.\n Avanzas de a un casillero, no puedes volver atras, tu unica salida es hacia adelante.",
+            confirmButtonText: "Entendido",
+          }).then((result)=>{if(result.isConfirmed){
+            Swal.fire({
+                title: "Como Jugar",
+                text: "Para comenzar una Pelea debes clickear en los dados y para avanzar en el mapa debes clickear el boton Avanzar.",
+          })}});
+    } else if (
+
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire({
+        title: "Cancelado",
+        text: "Esperemos que quieras jugarlo pronto!",
+        icon: "error"
+      });
+    }
+  });
+
 
 
 const StatsHeroe = document.getElementById("heroe")
@@ -44,25 +79,25 @@ const Heroe={
 }
 const Atributos= () =>{ StatsHeroe.innerText = `ATRIBUTOS\n\n\nVIDA:${Heroe.vida}\nDEF: ${Heroe.armadura}\nARMA: ${Heroe.arma}`}
 Atributos()
-const HombreRata={
-    id:1,
-    vida:30,
-    arma:1,
-    armadura:0,
-}
 
-const CienPiesGigante ={
-    id:2,
-    vida:50,
-    arma: 2,
-    armadura:1,
-}
-const AranaGigante= {
-    id:3,
-    vida: 65,
-    arma: 3,
-    armadura: 2,}
+    let HombreRata
+    let AranaGigante
+    let CienPiesGigante
 
+ const traerCriaturas= async ()=>{
+        try{
+           const res = await fetch("./criaturas.json")
+           const data = await res.json()
+            HombreRata = data.HombreRata
+            AranaGigante= data.AranaGigante
+            CienPiesGigante = data.CienPiesGigante
+        }
+        catch (error){
+           console.log(error)
+        }
+       }  
+
+    traerCriaturas()
 
 const MAP = [
     {id:1,
@@ -140,7 +175,15 @@ const RestaurarVida = () => {
 
 const DecidirCamino = () =>{
 
-const Derecha = confirm ("¿Deseas ir a la derecha?")
+const Derecha = Swal.fire({
+    title: "Decide tu camino?",
+    text: "Que camino deseas elegir",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    showCancelButton: true,
+    confirmButtonText: "Derecha",
+    cancelButtonText:"Izquierda",
+})
 
 if (Derecha === true) {
     MAP.splice(13,2)
@@ -343,7 +386,3 @@ NombredelHeroe.addEventListener("change", ()=> {
 
     localStorage.setItem("nombreHeroe", inputValue);
 });
-
-
-
-

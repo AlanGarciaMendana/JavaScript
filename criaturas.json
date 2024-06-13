@@ -1,0 +1,20 @@
+{
+    "HombreRata": {
+        "id": 1,
+        "vida": 30,
+        "arma": 1,
+        "armadura": 0
+    },
+    "CienPiesGigante": {
+        "id": 2,
+        "vida": 50,
+        "arma": 2,
+        "armadura": 1
+    },
+    "AranaGigante": {
+        "id": 3,
+        "vida": 65,
+        "arma": 3,
+        "armadura": 2
+    }
+}
