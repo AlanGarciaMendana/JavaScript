@@ -1,4 +1,4 @@
-*{
+#app{
 
     margin: 0;
     box-sizing: content-box;
@@ -60,7 +60,7 @@ p {
     display: flex;
     font-size: 220%;
     position: relative;
-    top:89%;
+    top:85%;
     left: 50%;
     width:10px;
     height: 10px;

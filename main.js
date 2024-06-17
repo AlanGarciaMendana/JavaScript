@@ -246,7 +246,7 @@ if  (TiradaDefensaNpcs > 7 ) {
 }
 
 const PeleaNpc = (NPC) => {
-    console.log("Empieza la pelea");
+    eventotirada.innerText ="Empieza la pelea";
     avanzarButton.disabled = true; 
 
     const verificarMuerte = () => {
@@ -315,7 +315,7 @@ const PeleaNpc = (NPC) => {
                 }
             }, 1000);
         }, 2000);
-    }, 4000);
+    }, 2500);
 };
 let currentIndex = 0; 
 const mostrarElementoActual = () => {
